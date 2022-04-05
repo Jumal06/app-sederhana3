@@ -4,14 +4,36 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>app sederhana</title>
   </head>
   <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <div id="app">
+      <div class="py-4 mx-auto my-14 w-2/5 bg-neutral-500 text-center">
+        <p class="text-5xl p-14 mx-auto w-3/6 bg-sky-300">{{ count }}</p>
+        <button class="mt-5 w-3/12 p-2 text-white bg-green-600" @click="increment()">TAMBAH</button>
+        <button class="mt-5 w-3/12 p-2 text-white bg-red-600" @click="decrement()">KURANGI</button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/src/main.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            count: 0
+          }
+        },
+        methods: {
+          increment() {
+            this.count++
+          },
+          decrement() {
+            this.count--
+          }
+        },
+      }).mount('#app')
+    </script>
   </body>
 </html>
